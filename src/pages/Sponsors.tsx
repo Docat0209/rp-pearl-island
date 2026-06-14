@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { sponsorCars } from '../data/cars'
 import { DISCORD_INVITE_URL } from '../data/discord'
 import CarThumbnail from '../components/CarThumbnail'
@@ -7,7 +7,12 @@ const SPONSOR_PRICE = 'NT$ 2,000'
 
 export default function Sponsors() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isVideoReady, setIsVideoReady] = useState(false)
   const activeCar = sponsorCars[activeIndex]
+
+  useEffect(() => {
+    setIsVideoReady(true)
+  }, [])
 
   return (
     <div className="bg-gradient-to-b from-pearl-cream via-white to-pearl-lavender/20">
@@ -32,7 +37,8 @@ export default function Sponsors() {
               key={activeCar.src}
               src={encodeURI(activeCar.src)}
               controls
-              autoPlay
+              autoPlay={isVideoReady}
+              preload={isVideoReady ? 'auto' : 'metadata'}
               loop
               muted
               playsInline
