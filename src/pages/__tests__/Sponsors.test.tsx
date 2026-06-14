@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import userEvent from '@testing-library/user-event'
 import Sponsors from '../Sponsors'
 import { sponsorCars } from '../../data/cars'
+import { DISCORD_INVITE_URL } from '../../data/discord'
 
 describe('Sponsors page', () => {
   it('shows the first car as featured by default', () => {
@@ -40,6 +41,21 @@ describe('Sponsors page', () => {
 
     for (const car of sponsorCars) {
       expect(screen.getByRole('button', { name: car.name })).toBeInTheDocument()
+    }
+  })
+
+  it('directs sponsors to open a ticket in the Discord 客服中心 channel', () => {
+    render(
+      <BrowserRouter>
+        <Sponsors />
+      </BrowserRouter>,
+    )
+
+    expect(screen.getByText(/客服中心/)).toBeInTheDocument()
+    const discordLinks = screen.getAllByRole('link', { name: /Discord|贊助這台車/ })
+    expect(discordLinks.length).toBeGreaterThan(0)
+    for (const link of discordLinks) {
+      expect(link).toHaveAttribute('href', DISCORD_INVITE_URL)
     }
   })
 })
