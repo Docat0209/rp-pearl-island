@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { DISCORD_INVITE_URL } from '../data/discord'
 
 const links = [
   { to: '/', label: '首頁' },
@@ -38,6 +39,14 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
+          <a
+            href={DISCORD_INVITE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full bg-pearl-pink-deep px-4 py-2 text-sm font-bold text-white shadow-sm transition-transform hover:scale-105"
+          >
+            加入 Discord
+          </a>
         </div>
       </nav>
     </header>
