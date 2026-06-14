@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { DISCORD_INVITE_URL } from '../data/discord'
 
 const features = [
   {
@@ -39,7 +40,9 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#"
+              href={DISCORD_INVITE_URL}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-pearl-pink-deep px-8 py-3 font-bold text-white shadow-lg shadow-pearl-pink-deep/40 transition-transform hover:scale-105"
             >
               加入 Discord

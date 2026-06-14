@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { sponsorCars } from '../data/cars'
+import { DISCORD_INVITE_URL } from '../data/discord'
 import CarThumbnail from '../components/CarThumbnail'
+
+const SPONSOR_PRICE = 'NT$ 2,000'
 
 export default function Sponsors() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -30,6 +33,7 @@ export default function Sponsors() {
               src={encodeURI(activeCar.src)}
               controls
               autoPlay
+              preload="auto"
               loop
               muted
               playsInline
@@ -44,15 +48,32 @@ export default function Sponsors() {
               <h2 className="font-display text-2xl font-black md:text-3xl">
                 {activeCar.name}
               </h2>
+              <p className="mt-1 text-sm font-bold text-pearl-gold">
+                贊助價格：{SPONSOR_PRICE} / 台
+              </p>
             </div>
             <a
-              href="#"
+              href={DISCORD_INVITE_URL}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-pearl-gold px-6 py-2 font-bold text-pearl-navy-deep shadow-md transition-transform hover:scale-105"
             >
               贊助這台車
             </a>
           </div>
         </div>
+        <p className="mt-4 text-center text-sm text-pearl-navy-deep/70">
+          想贊助這台車嗎？前往
+          <a
+            href={DISCORD_INVITE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mx-1 font-bold text-pearl-pink-deep underline"
+          >
+            珍珠島 Discord
+          </a>
+          ，在「🏷️｜客服中心」頻道建立票口，將有專人為您服務。
+        </p>
       </section>
 
       {/* Car grid */}
