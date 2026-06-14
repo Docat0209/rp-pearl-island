@@ -3,32 +3,23 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import CarThumbnail from '../CarThumbnail'
 
-const car = { name: 'Aston Martin Victor', src: '/videos/AstonMartinVictor.mp4' }
+const car = {
+  name: 'Aston Martin Victor',
+  src: '/videos/AstonMartinVictor.mp4',
+  poster: '/images/cars/aston-martin-victor.jpg',
+}
 
 describe('CarThumbnail', () => {
-  it('does not render a video until hovered', () => {
+  it('renders a poster image with lazy loading', () => {
     render(<CarThumbnail car={car} active={false} onSelect={() => {}} />)
 
-    expect(screen.getByRole('button', { name: car.name })).toBeInTheDocument()
-    expect(document.querySelector('video')).not.toBeInTheDocument()
+    const img = document.querySelector('img')
+    expect(img).toHaveAttribute('src', encodeURI(car.poster))
+    expect(img).toHaveAttribute('loading', 'lazy')
   })
 
-  it('loads the preview video on hover', async () => {
+  it('does not render a video element', () => {
     render(<CarThumbnail car={car} active={false} onSelect={() => {}} />)
-
-    await userEvent.hover(screen.getByRole('button', { name: car.name }))
-
-    const video = document.querySelector('video')
-    expect(video).toHaveAttribute('src', encodeURI(car.src))
-    expect(video).toHaveAttribute('preload', 'none')
-  })
-
-  it('removes the preview video when the mouse leaves', async () => {
-    render(<CarThumbnail car={car} active={false} onSelect={() => {}} />)
-
-    const button = screen.getByRole('button', { name: car.name })
-    await userEvent.hover(button)
-    await userEvent.unhover(button)
 
     expect(document.querySelector('video')).not.toBeInTheDocument()
   })
