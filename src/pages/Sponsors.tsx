@@ -33,6 +33,7 @@ export default function Sponsors() {
               src={encodeURI(activeCar.src)}
               controls
               autoPlay
+              preload="auto"
               loop
               muted
               playsInline
