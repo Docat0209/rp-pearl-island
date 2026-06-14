@@ -3,6 +3,8 @@ import { sponsorCars } from '../data/cars'
 import { DISCORD_INVITE_URL } from '../data/discord'
 import CarThumbnail from '../components/CarThumbnail'
 
+const SPONSOR_PRICE = 'NT$ 2,000'
+
 export default function Sponsors() {
   const [activeIndex, setActiveIndex] = useState(0)
   const activeCar = sponsorCars[activeIndex]
@@ -45,6 +47,9 @@ export default function Sponsors() {
               <h2 className="font-display text-2xl font-black md:text-3xl">
                 {activeCar.name}
               </h2>
+              <p className="mt-1 text-sm font-bold text-pearl-gold">
+                贊助價格：{SPONSOR_PRICE} / 台
+              </p>
             </div>
             <a
               href={DISCORD_INVITE_URL}
