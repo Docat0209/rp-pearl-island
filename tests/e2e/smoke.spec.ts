@@ -23,6 +23,7 @@ test('sponsor page plays a featured vehicle video and switches cars', async ({ p
 
   await expect(page.getByRole('heading', { name: 'Aston Martin Victor' })).toBeVisible()
   await expect(page.locator('video').first()).toBeVisible()
+  await expect(page.getByText('NT$ 2,000')).toBeVisible()
 
   await page.getByRole('button', { name: 'BMW Hommage' }).click()
   await expect(page.getByRole('heading', { name: 'BMW Hommage' })).toBeVisible()

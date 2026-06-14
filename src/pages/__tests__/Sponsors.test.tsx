@@ -44,6 +44,16 @@ describe('Sponsors page', () => {
     }
   })
 
+  it('shows the sponsorship price for the featured car', () => {
+    render(
+      <BrowserRouter>
+        <Sponsors />
+      </BrowserRouter>,
+    )
+
+    expect(screen.getByText(/NT\$ 2,000/)).toBeInTheDocument()
+  })
+
   it('directs sponsors to open a ticket in the Discord 客服中心 channel', () => {
     render(
       <BrowserRouter>
