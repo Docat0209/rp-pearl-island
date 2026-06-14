@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+@theme {
+  /* 珍珠島 pastel palette, sampled from the server's logo artwork */
+  --color-pearl-pink: #ffd6e6;
+  --color-pearl-pink-deep: #ff9fc4;
+  --color-pearl-lavender: #cdbdf2;
+  --color-pearl-lavender-deep: #b39ce0;
+  --color-pearl-sky: #bfe6f2;
+  --color-pearl-cream: #fff6ec;
+  --color-pearl-gold: #e8c468;
+  --color-pearl-navy: #423c54;
+  --color-pearl-navy-deep: #2c2738;
+
+  --font-display: 'Noto Serif TC', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Noto Sans TC', 'Segoe UI', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-pearl-navy-deep);
+  background-color: var(--color-pearl-cream);
+}
