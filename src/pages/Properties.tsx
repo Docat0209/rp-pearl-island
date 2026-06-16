@@ -102,9 +102,6 @@ function PropertyCard({
         <p className="text-xs text-pearl-navy/60">
           📍 {property.coordinates}
         </p>
-        {!property.sold && (
-          <p className="text-xs text-green-600">🚶 可前往城內對應位置自由參觀</p>
-        )}
 
         <p className="flex-1 text-sm leading-relaxed text-pearl-navy-deep/75">
           {property.description}
@@ -178,6 +175,7 @@ export default function Properties() {
             購買後標配 <strong>🔑 房屋鑰匙、🚗 私人車庫、📦 私人倉庫、👔 私人更衣間</strong>，
             另附各房產專屬設施，入住屬於你的夢想豪宅。
           </p>
+          <p className="mt-2 text-sm text-pearl-navy-deep/60">出售中的房產均可前往城內對應座標實地參觀。</p>
         </section>
 
         {/* Property grid */}
