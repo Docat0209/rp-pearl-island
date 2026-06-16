@@ -4,6 +4,7 @@ import { DISCORD_INVITE_URL } from '../data/discord'
 interface Property {
   id: number
   image: string
+  name: string
   type: string
   price: number
   coordinates: string
@@ -13,6 +14,13 @@ interface Property {
 }
 
 const properties: Property[] = propertiesData
+
+const FEATURES = [
+  { icon: '🔑', label: '房屋鑰匙' },
+  { icon: '🚗', label: '私人車庫' },
+  { icon: '📦', label: '私人倉庫' },
+  { icon: '👔', label: '私人更衣間' },
+]
 
 function formatPrice(price: number) {
   return `$${price.toLocaleString()}`
@@ -25,15 +33,13 @@ function PropertyCard({ property }: { property: Property }) {
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={`/images/properties/${property.image}`}
-          alt={property.type}
+          alt={property.name}
           className="h-full w-full object-cover"
           loading="lazy"
         />
-        {/* Type badge */}
         <span className="absolute left-3 top-3 rounded-full bg-pearl-navy-deep/80 px-3 py-1 text-xs font-bold text-pearl-cream backdrop-blur-sm">
           {property.type}
         </span>
-        {/* Sold overlay */}
         {property.sold && (
           <div className="absolute inset-0 flex items-center justify-center bg-pearl-navy-deep/60 backdrop-blur-[2px]">
             <span className="rotate-[-12deg] rounded-lg border-4 border-red-400 px-4 py-2 font-display text-2xl font-black text-red-400">
@@ -45,14 +51,13 @@ function PropertyCard({ property }: { property: Property }) {
 
       {/* Card body */}
       <div className="flex flex-1 flex-col gap-3 p-5">
-        {/* Area + coordinates */}
         <div className="flex items-start justify-between gap-2">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-pearl-lavender-deep">
               {property.area}
             </p>
             <p className="mt-0.5 font-display text-lg font-bold text-pearl-navy-deep">
-              {property.type}
+              {property.name}
             </p>
           </div>
           <span className={`mt-0.5 shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold ${property.sold ? 'bg-gray-200 text-gray-500' : 'bg-green-100 text-green-700'}`}>
@@ -60,15 +65,25 @@ function PropertyCard({ property }: { property: Property }) {
           </span>
         </div>
 
-        {/* Coordinates */}
         <p className="text-xs text-pearl-navy/60">
           📍 {property.coordinates}
         </p>
 
-        {/* Description */}
         <p className="flex-1 text-sm leading-relaxed text-pearl-navy-deep/75">
           {property.description}
         </p>
+
+        {/* Feature tags */}
+        <div className="flex flex-wrap gap-1.5">
+          {FEATURES.map((f) => (
+            <span
+              key={f.label}
+              className="rounded-full bg-pearl-lavender/40 px-2.5 py-0.5 text-xs font-medium text-pearl-navy-deep"
+            >
+              {f.icon} {f.label}
+            </span>
+          ))}
+        </div>
 
         {/* Price + CTA */}
         <div className="mt-auto flex items-center justify-between border-t border-pearl-lavender/30 pt-3">
@@ -95,9 +110,6 @@ function PropertyCard({ property }: { property: Property }) {
 }
 
 export default function Properties() {
-  const available = properties.filter((p) => !p.sold)
-  const sold = properties.filter((p) => p.sold)
-
   return (
     <div className="bg-gradient-to-b from-pearl-cream via-white to-pearl-lavender/20">
       {/* Page header */}
@@ -111,11 +123,6 @@ export default function Properties() {
         <p className="mx-auto mt-3 max-w-2xl px-6 text-pearl-navy-deep/80">
           珍珠島精選頂級房產，每一棟都是玩家身份的象徵。購買後取得房屋鑰匙與停車位，入住屬於你的夢想豪宅。
         </p>
-        <div className="mt-6 flex justify-center gap-6 text-sm font-bold text-pearl-navy-deep/70">
-          <span>🏠 共 {properties.length} 間房產</span>
-          <span>✅ {available.length} 間出售中</span>
-          <span>🔒 {sold.length} 間已售出</span>
-        </div>
       </section>
 
       {/* Property grid */}

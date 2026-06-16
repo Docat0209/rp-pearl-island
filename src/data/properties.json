@@ -2,7 +2,8 @@
   {
     "id": 1,
     "image": "build_1.png",
-    "type": "現代山頂豪宅",
+    "name": "翡翠山頂莊園",
+    "type": "山頂豪宅",
     "price": 12000000,
     "coordinates": "X: -1648, Y: 452",
     "area": "好萊塢山",
@@ -12,7 +13,8 @@
   {
     "id": 2,
     "image": "build_2.png",
-    "type": "懸崖玻璃別墅",
+    "name": "峭壁玻璃居",
+    "type": "懸崖別墅",
     "price": 7500000,
     "coordinates": "X: -1720, Y: 318",
     "area": "峭壁海岸",
@@ -22,7 +24,8 @@
   {
     "id": 3,
     "image": "build_3.png",
-    "type": "城市磚造聯排屋",
+    "name": "市區磚廊小築",
+    "type": "城市聯排",
     "price": 3200000,
     "coordinates": "X: 122, Y: -812",
     "area": "市中心",
@@ -32,6 +35,7 @@
   {
     "id": 4,
     "image": "build_4.png",
+    "name": "珍珠灣濱海邸",
     "type": "濱海豪宅",
     "price": 9800000,
     "coordinates": "X: -1554, Y: -714",
@@ -42,7 +46,8 @@
   {
     "id": 5,
     "image": "build_5.png",
-    "type": "山丘獨棟別墅",
+    "name": "溫莎丘陵居",
+    "type": "山丘別墅",
     "price": 4500000,
     "coordinates": "X: -884, Y: 568",
     "area": "溫莎山丘",
@@ -52,7 +57,8 @@
   {
     "id": 6,
     "image": "build_6.png",
-    "type": "曲線造型山景莊園",
+    "name": "弧光山景莊園",
+    "type": "曲線莊園",
     "price": 15000000,
     "coordinates": "X: -1452, Y: 612",
     "area": "好萊塢山",
@@ -62,7 +68,8 @@
   {
     "id": 7,
     "image": "build_7.png",
-    "type": "木質現代別墅",
+    "name": "木蘭山嶺居",
+    "type": "木質別墅",
     "price": 6200000,
     "coordinates": "X: -964, Y: 442",
     "area": "岩福山莊",
@@ -72,7 +79,8 @@
   {
     "id": 8,
     "image": "build_8.png",
-    "type": "山崖平台莊園",
+    "name": "崖台平野莊",
+    "type": "山崖莊園",
     "price": 8800000,
     "coordinates": "X: -1538, Y: 524",
     "area": "峭壁海岸",
@@ -82,7 +90,8 @@
   {
     "id": 9,
     "image": "build_9.png",
-    "type": "都市現代豪宅",
+    "name": "岩福城市宅",
+    "type": "都市豪宅",
     "price": 5500000,
     "coordinates": "X: -342, Y: -482",
     "area": "岩福山莊",
@@ -92,7 +101,8 @@
   {
     "id": 10,
     "image": "build_10.png",
-    "type": "三層濱海豪宅",
+    "name": "藍灣三層大宅",
+    "type": "三層濱海宅",
     "price": 18000000,
     "coordinates": "X: -1622, Y: -752",
     "area": "珍珠海灘",
@@ -102,7 +112,8 @@
   {
     "id": 11,
     "image": "build_11.png",
-    "type": "高架玻璃方盒小屋",
+    "name": "鏡湖方舟",
+    "type": "高架藝術屋",
     "price": 2800000,
     "coordinates": "X: -88, Y: -644",
     "area": "鏡湖公園",
@@ -112,7 +123,8 @@
   {
     "id": 12,
     "image": "build_12.png",
-    "type": "山腰玻璃豪宅",
+    "name": "山腰明鏡宅",
+    "type": "山腰玻璃宅",
     "price": 11000000,
     "coordinates": "X: -1288, Y: 486",
     "area": "好萊塢山",
@@ -122,7 +134,8 @@
   {
     "id": 13,
     "image": "build_13.png",
-    "type": "超大平頂莊園",
+    "name": "皇冠頂峰莊園",
+    "type": "頂峰莊園",
     "price": 22000000,
     "coordinates": "X: -1368, Y: 752",
     "area": "好萊塢山",

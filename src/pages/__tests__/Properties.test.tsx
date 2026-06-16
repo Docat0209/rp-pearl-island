@@ -7,7 +7,8 @@ const mockProperties = vi.hoisted(() => [
   {
     id: 1,
     image: 'build_1.png',
-    type: '現代山頂豪宅',
+    name: '翡翠山頂莊園',
+    type: '山頂豪宅',
     price: 12000000,
     coordinates: 'X: -1648, Y: 452',
     area: '好萊塢山',
@@ -17,7 +18,8 @@ const mockProperties = vi.hoisted(() => [
   {
     id: 2,
     image: 'build_2.png',
-    type: '懸崖玻璃別墅',
+    name: '峭壁玻璃居',
+    type: '懸崖別墅',
     price: 7500000,
     coordinates: 'X: -1720, Y: 318',
     area: '峭壁海岸',
@@ -42,11 +44,16 @@ describe('Properties', () => {
     expect(screen.getAllByRole('img')).toHaveLength(mockProperties.length)
   })
 
-  it('shows correct stats in the page header', () => {
+  it('shows property name as card title', () => {
     renderProperties()
-    expect(screen.getByText(/共 2 間房產/)).toBeInTheDocument()
-    expect(screen.getByText(/1 間出售中/)).toBeInTheDocument()
-    expect(screen.getByText(/1 間已售出/)).toBeInTheDocument()
+    expect(screen.getByText('翡翠山頂莊園')).toBeInTheDocument()
+    expect(screen.getByText('峭壁玻璃居')).toBeInTheDocument()
+  })
+
+  it('shows concise type badge on each card', () => {
+    renderProperties()
+    expect(screen.getByText('山頂豪宅')).toBeInTheDocument()
+    expect(screen.getByText('懸崖別墅')).toBeInTheDocument()
   })
 
   it('displays available status badge for unsold properties', () => {
@@ -64,7 +71,6 @@ describe('Properties', () => {
   it('shows 已售出 overlay and badge for sold properties', () => {
     renderProperties()
     const soldLabels = screen.getAllByText('已售出')
-    // one in overlay, one in badge
     expect(soldLabels.length).toBeGreaterThanOrEqual(2)
   })
 
@@ -74,7 +80,16 @@ describe('Properties', () => {
     expect(screen.getByText('$7,500,000')).toBeInTheDocument()
   })
 
-  it('renders property area and type for each card', () => {
+  it('renders all 4 feature tags on each card', () => {
+    renderProperties()
+    // each tag appears once per card (mockProperties.length cards)
+    expect(screen.getAllByText(/私人車庫/).length).toBeGreaterThanOrEqual(mockProperties.length)
+    expect(screen.getAllByText(/私人倉庫/).length).toBeGreaterThanOrEqual(mockProperties.length)
+    expect(screen.getAllByText(/私人更衣間/).length).toBeGreaterThanOrEqual(mockProperties.length)
+    expect(screen.getAllByText(/🔑 房屋鑰匙/).length).toBe(mockProperties.length)
+  })
+
+  it('renders property area for each card', () => {
     renderProperties()
     expect(screen.getByText('好萊塢山')).toBeInTheDocument()
     expect(screen.getByText('峭壁海岸')).toBeInTheDocument()
