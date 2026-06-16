@@ -5,6 +5,7 @@ import { DISCORD_INVITE_URL } from '../data/discord'
 const links = [
   { to: '/', label: '首頁' },
   { to: '/sponsors', label: '贊助車輛' },
+  { to: '/properties', label: '豪宅贊助' },
 ]
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
