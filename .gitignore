@@ -31,3 +31,6 @@ dist-ssr
 
 .vercel
 .claude
+
+# Generated thumbnails (built at dev/build time)
+public/images/properties/thumbs/
