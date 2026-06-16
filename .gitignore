@@ -34,3 +34,5 @@ dist-ssr
 
 # Generated thumbnails (built at dev/build time)
 public/images/properties/thumbs/
+
+# FiveM app UI is committed (self-contained resource, updated via build:fivem + git push)

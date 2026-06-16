@@ -1,0 +1,41 @@
+name: FiveM Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build + copy to fivem resource
+        run: npm run build:fivem
+
+      - name: Push fivem/pearl-island-app/ to fivem-release branch
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 暫存 resource 內容
+          cp -r fivem/pearl-island-app /tmp/fivem-resource
+
+          # 切到 fivem-release branch（不存在則建立）
+          git fetch origin fivem-release 2>/dev/null || true
+          git checkout --orphan fivem-release-tmp
+          git rm -rf . --quiet
+
+          # 把 resource 內容放到 root（FiveM server 直接 clone 即可當 resource）
+          cp -r /tmp/fivem-resource/. .
+
+          git add -A
+          git commit -m "chore: fivem release $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push origin HEAD:fivem-release --force
