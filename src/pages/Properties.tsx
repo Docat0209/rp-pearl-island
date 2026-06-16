@@ -152,9 +152,9 @@ export default function Properties() {
     <>
       <Helmet>
         <title>豪宅贊助 | 珍珠島 Pearl Island</title>
-        <meta name="description" content="珍珠島精選頂級房產，共 13 間豪宅任君選擇。購買後取得房屋鑰匙、私人車庫、私人倉庫與私人更衣間，入住屬於你的夢想豪宅。" />
+        <meta name="description" content="珍珠島精選頂級房產，多棟豪宅任君選擇。購買後取得房屋鑰匙、私人車庫、私人倉庫與私人更衣間，入住屬於你的夢想豪宅。" />
         <meta property="og:title" content="豪宅贊助 | 珍珠島 Pearl Island" />
-        <meta property="og:description" content="珍珠島精選頂級房產，共 13 間豪宅任君選擇。購買後取得房屋鑰匙、私人車庫、私人倉庫與私人更衣間，入住屬於你的夢想豪宅。" />
+        <meta property="og:description" content="珍珠島精選頂級房產，多棟豪宅任君選擇。購買後取得房屋鑰匙、私人車庫、私人倉庫與私人更衣間，入住屬於你的夢想豪宅。" />
         <meta property="og:image" content={`${SITE_URL}/images/properties/build_1.png`} />
         <meta property="og:url" content={`${SITE_URL}/properties`} />
         <meta property="og:type" content="website" />
