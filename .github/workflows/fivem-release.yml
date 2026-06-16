@@ -32,6 +32,7 @@ jobs:
           git fetch origin fivem-release 2>/dev/null || true
           git checkout --orphan fivem-release-tmp
           git rm -rf . --quiet
+          git clean -fdx --quiet
 
           # 把 resource 內容放到 root（FiveM server 直接 clone 即可當 resource）
           cp -r /tmp/fivem-resource/. .
