@@ -65,7 +65,7 @@ function PropertyCard({
         onClick={() => !property.sold && onImageClick(`/images/properties/${property.image}`, property.name)}
       >
         <img
-          src={`/images/properties/${property.image}`}
+          src={`/images/properties/thumbs/${property.image.replace('.png', '.webp')}`}
           alt={property.name}
           className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           loading="lazy"
