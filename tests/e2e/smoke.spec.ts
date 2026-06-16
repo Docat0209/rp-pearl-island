@@ -28,3 +28,20 @@ test('sponsor page plays a featured vehicle video and switches cars', async ({ p
   await page.getByRole('button', { name: 'BMW Hommage' }).click()
   await expect(page.getByRole('heading', { name: 'BMW Hommage' })).toBeVisible()
 })
+
+test('properties page shows listing grid and sold status', async ({ page }) => {
+  await page.goto('/properties')
+
+  await expect(page.getByRole('heading', { name: '豪宅贊助' })).toBeVisible()
+  await expect(page.getByText(/共 13 間房產/)).toBeVisible()
+  await expect(page.getByText('想入手你的夢想豪宅？')).toBeVisible()
+  await expect(page.getByRole('link', { name: '前往 Discord 洽詢' })).toBeVisible()
+})
+
+test('navbar links to properties page', async ({ page }) => {
+  await page.goto('/')
+
+  await page.getByRole('link', { name: '豪宅贊助' }).click()
+  await expect(page).toHaveURL(/\/properties$/)
+  await expect(page.getByRole('heading', { name: '豪宅贊助' })).toBeVisible()
+})
