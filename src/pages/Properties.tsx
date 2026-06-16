@@ -21,7 +21,7 @@ interface Property {
 const properties: Property[] = propertiesData
 
 function formatPrice(price: number) {
-  return `$${price.toLocaleString()}`
+  return `NT$${price.toLocaleString()}`
 }
 
 function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
@@ -73,11 +73,7 @@ function PropertyCard({
         <span className="absolute left-3 top-3 rounded-full bg-pearl-navy-deep/80 px-3 py-1 text-xs font-bold text-pearl-cream backdrop-blur-sm">
           {property.type}
         </span>
-        {!property.sold && (
-          <span className="absolute bottom-3 right-3 rounded-full bg-black/40 px-2 py-1 text-xs text-white backdrop-blur-sm">
-            🔍 點擊放大
-          </span>
-        )}
+
         {property.sold && (
           <div className="absolute inset-0 flex items-center justify-center bg-pearl-navy-deep/60 backdrop-blur-[2px]">
             <span className="rotate-[-12deg] rounded-lg border-4 border-red-400 px-4 py-2 font-display text-2xl font-black text-red-400">
@@ -106,6 +102,9 @@ function PropertyCard({
         <p className="text-xs text-pearl-navy/60">
           📍 {property.coordinates}
         </p>
+        {!property.sold && (
+          <p className="text-xs text-green-600">🚶 可前往城內對應位置自由參觀</p>
+        )}
 
         <p className="flex-1 text-sm leading-relaxed text-pearl-navy-deep/75">
           {property.description}

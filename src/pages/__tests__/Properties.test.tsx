@@ -76,10 +76,10 @@ describe('Properties', () => {
     expect(soldLabels.length).toBeGreaterThanOrEqual(2)
   })
 
-  it('formats price with dollar sign and thousand separators', () => {
+  it('formats price with NT$ prefix', () => {
     renderProperties()
-    expect(screen.getByText('$12,000,000')).toBeInTheDocument()
-    expect(screen.getByText('$7,500,000')).toBeInTheDocument()
+    expect(screen.getByText('NT$12,000,000')).toBeInTheDocument()
+    expect(screen.getByText('NT$7,500,000')).toBeInTheDocument()
   })
 
   it('renders JSON-driven feature tags on each card', () => {
