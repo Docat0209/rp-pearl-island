@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { DISCORD_INVITE_URL } from '../data/discord'
+
+const SITE_URL = 'https://rp-pearl-island.vercel.app'
 
 const features = [
   {
@@ -21,7 +24,19 @@ const features = [
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>珍珠島 Pearl Island | FiveM RP 伺服器</title>
+        <meta name="description" content="一座漂浮在粉色夕陽中的 FiveM RP 城市，等待你的角色登場。加入珍珠島，體驗沉浸式角色扮演、自訂地圖與活躍友善的社群。" />
+        <meta property="og:title" content="珍珠島 Pearl Island | FiveM RP 伺服器" />
+        <meta property="og:description" content="一座漂浮在粉色夕陽中的 FiveM RP 城市，等待你的角色登場。加入珍珠島，體驗沉浸式角色扮演、自訂地圖與活躍友善的社群。" />
+        <meta property="og:image" content={`${SITE_URL}/images/logo.png`} />
+        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+      <div>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-pearl-sky via-pearl-pink to-pearl-cream">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-20 text-center md:py-28">
@@ -98,5 +113,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   )
 }

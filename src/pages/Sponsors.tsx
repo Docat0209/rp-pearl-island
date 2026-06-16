@@ -1,16 +1,30 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { sponsorCars } from '../data/cars'
 import { DISCORD_INVITE_URL } from '../data/discord'
 import CarThumbnail from '../components/CarThumbnail'
 
 const SPONSOR_PRICE = 'NT$ 2,000'
+const SITE_URL = 'https://rp-pearl-island.vercel.app'
 
 export default function Sponsors() {
   const [activeIndex, setActiveIndex] = useState(0)
   const activeCar = sponsorCars[activeIndex]
 
   return (
-    <div className="bg-gradient-to-b from-pearl-cream via-white to-pearl-lavender/20">
+    <>
+      <Helmet>
+        <title>贊助車輛展示 | 珍珠島 Pearl Island</title>
+        <meta name="description" content="珍珠島贊助車輛展示，共 10 台頂級超跑任君選擇。每台車皆專屬於珍珠島頂級玩家，加入 Discord 洽詢贊助。" />
+        <meta property="og:title" content="贊助車輛展示 | 珍珠島 Pearl Island" />
+        <meta property="og:description" content="珍珠島贊助車輛展示，共 10 台頂級超跑任君選擇。每台車皆專屬於珍珠島頂級玩家，加入 Discord 洽詢贊助。" />
+        <meta property="og:image" content={`${SITE_URL}/images/logo.png`} />
+        <meta property="og:url" content={`${SITE_URL}/sponsors`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+      <div className="bg-gradient-to-b from-pearl-cream via-white to-pearl-lavender/20">
       {/* Page header */}
       <section className="bg-gradient-to-r from-pearl-lavender via-pearl-pink to-pearl-sky py-14 text-center">
         <p className="font-display text-sm font-bold uppercase tracking-[0.3em] text-pearl-navy-deep/70">
@@ -93,5 +107,6 @@ export default function Sponsors() {
         </div>
       </section>
     </div>
+    </>
   )
 }

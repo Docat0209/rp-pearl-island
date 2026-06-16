@@ -13,6 +13,7 @@ const mockProperties = vi.hoisted(() => [
     coordinates: 'X: -1648, Y: 452',
     area: '好萊塢山',
     description: '測試描述一',
+    features: ['🏊 無邊際泳池', '🌿 多層景觀露台'],
     sold: false,
   },
   {
@@ -24,6 +25,7 @@ const mockProperties = vi.hoisted(() => [
     coordinates: 'X: -1720, Y: 318',
     area: '峭壁海岸',
     description: '測試描述二',
+    features: ['🏊 懸空泳池'],
     sold: true,
   },
 ])
@@ -74,19 +76,17 @@ describe('Properties', () => {
     expect(soldLabels.length).toBeGreaterThanOrEqual(2)
   })
 
-  it('formats price with dollar sign and thousand separators', () => {
+  it('formats price with NT$ prefix', () => {
     renderProperties()
-    expect(screen.getByText('$12,000,000')).toBeInTheDocument()
-    expect(screen.getByText('$7,500,000')).toBeInTheDocument()
+    expect(screen.getByText('NT$12,000,000')).toBeInTheDocument()
+    expect(screen.getByText('NT$7,500,000')).toBeInTheDocument()
   })
 
-  it('renders all 4 feature tags on each card', () => {
+  it('renders JSON-driven feature tags on each card', () => {
     renderProperties()
-    // each tag appears once per card (mockProperties.length cards)
-    expect(screen.getAllByText(/私人車庫/).length).toBeGreaterThanOrEqual(mockProperties.length)
-    expect(screen.getAllByText(/私人倉庫/).length).toBeGreaterThanOrEqual(mockProperties.length)
-    expect(screen.getAllByText(/私人更衣間/).length).toBeGreaterThanOrEqual(mockProperties.length)
-    expect(screen.getAllByText(/🔑 房屋鑰匙/).length).toBe(mockProperties.length)
+    expect(screen.getAllByText('🏊 無邊際泳池')).toHaveLength(1)
+    expect(screen.getAllByText('🌿 多層景觀露台')).toHaveLength(1)
+    expect(screen.getAllByText('🏊 懸空泳池')).toHaveLength(1)
   })
 
   it('renders property area for each card', () => {
