@@ -15,7 +15,7 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      - run: npm install
 
       - name: Build + copy to fivem resource
         run: npm run build:fivem
