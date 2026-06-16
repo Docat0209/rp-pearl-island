@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Sponsors from './pages/Sponsors'
+import Properties from './pages/Properties'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sponsors" element={<Sponsors />} />
+          <Route path="/properties" element={<Properties />} />
         </Routes>
       </main>
       <Footer />
