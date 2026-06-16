@@ -15,9 +15,9 @@ export default function Sponsors() {
     <>
       <Helmet>
         <title>贊助車輛展示 | 珍珠島 Pearl Island</title>
-        <meta name="description" content="珍珠島贊助車輛展示，共 10 台頂級超跑任君選擇。每台車皆專屬於珍珠島頂級玩家，加入 Discord 洽詢贊助。" />
+        <meta name="description" content="珍珠島贊助車輛展示，多台頂級超跑任君選擇。每台車皆專屬於珍珠島頂級玩家，加入 Discord 洽詢贊助。" />
         <meta property="og:title" content="贊助車輛展示 | 珍珠島 Pearl Island" />
-        <meta property="og:description" content="珍珠島贊助車輛展示，共 10 台頂級超跑任君選擇。每台車皆專屬於珍珠島頂級玩家，加入 Discord 洽詢贊助。" />
+        <meta property="og:description" content="珍珠島贊助車輛展示，多台頂級超跑任君選擇。每台車皆專屬於珍珠島頂級玩家，加入 Discord 洽詢贊助。" />
         <meta property="og:image" content={`${SITE_URL}/images/logo.png`} />
         <meta property="og:url" content={`${SITE_URL}/sponsors`} />
         <meta property="og:type" content="website" />
