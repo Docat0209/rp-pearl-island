@@ -33,6 +33,7 @@ async function fixAssetPaths(dir) {
         const original = content
         if (ext === '.html') {
             content = content.replace(/(href|src)="\/(?!\/)/g, '$1="./')
+            content = content.replace('</head>', '<style>html,body{background:transparent!important}</style>\n</head>')
         } else if (ext === '.js') {
             content = content.replace(/(["`'])\/images\//g, '$1./images/')
             content = content.replace(/(["`'])\/videos\//g, '$1./videos/')
@@ -47,5 +48,3 @@ async function fixAssetPaths(dir) {
 await fixAssetPaths(uiDir)
 console.log(`✓ FiveM asset paths fixed (absolute → relative)`)
 
-await writeFile(join(uiDir, 'nui.html'), '<!DOCTYPE html><html><head></head><body></body></html>\n', 'utf8')
-console.log(`✓ Created nui.html (blank NUI page)`)
