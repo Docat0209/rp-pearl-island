@@ -6,8 +6,6 @@ description 'Pearl Island FiveM Phone App for LB-Phone'
 version '1.0.0'
 author 'Pearl Island'
 
-ui_page 'ui/index.html'
-
 files {
     'ui/**',
 }
