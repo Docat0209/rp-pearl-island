@@ -30,7 +30,7 @@ jobs:
           cp -r fivem/pearl-island-app /tmp/fivem-resource
 
           git fetch origin fivem-release 2>/dev/null && \
-            git checkout fivem-release || \
+            git checkout -f fivem-release || \
             git checkout --orphan fivem-release
 
           git rm -rf . --quiet
