@@ -27,18 +27,18 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # 暫存 resource 內容
           cp -r fivem/pearl-island-app /tmp/fivem-resource
 
-          # 切到 fivem-release branch（不存在則建立）
-          git fetch origin fivem-release 2>/dev/null || true
-          git checkout --orphan fivem-release-tmp
+          git fetch origin fivem-release 2>/dev/null && \
+            git checkout fivem-release || \
+            git checkout --orphan fivem-release
+
           git rm -rf . --quiet
           git clean -fdx --quiet
 
-          # 把 resource 內容放到 root（FiveM server 直接 clone 即可當 resource）
           cp -r /tmp/fivem-resource/. .
 
           git add -A
+          git diff --cached --quiet && echo "No changes to release" && exit 0
           git commit -m "chore: fivem release $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          git push origin HEAD:fivem-release --force
+          git push origin fivem-release
