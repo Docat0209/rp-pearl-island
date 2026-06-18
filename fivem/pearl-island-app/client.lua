@@ -8,8 +8,8 @@ CreateThread(function()
         identifier  = 'pearl-island',
         name        = '珍珠島',
         description = '珍珠島 Pearl Island 官方資訊 — 豪宅、贊助車輛展示',
-        icon        = 'nui://pearl-island-app/ui/images/logo.png',
-        ui          = 'pearl-island-app/ui/index.html',
+        icon        = 'https://cfx-nui-' .. GetCurrentResourceName() .. '/ui/images/logo.png',
+        ui          = GetCurrentResourceName() .. '/ui/index.html',
         defaultApp  = true,
     })
 end)

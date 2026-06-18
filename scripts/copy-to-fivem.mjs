@@ -46,3 +46,6 @@ async function fixAssetPaths(dir) {
 
 await fixAssetPaths(uiDir)
 console.log(`✓ FiveM asset paths fixed (absolute → relative)`)
+
+await writeFile(join(uiDir, 'nui.html'), '<!DOCTYPE html><html><head></head><body></body></html>\n', 'utf8')
+console.log(`✓ Created nui.html (blank NUI page)`)
