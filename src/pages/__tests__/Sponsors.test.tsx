@@ -44,25 +44,26 @@ describe('Sponsors page', () => {
     }
   })
 
-  it('shows the sponsorship price for the featured car', () => {
+  it('shows gacha and direct purchase pricing', () => {
     render(
       <BrowserRouter>
         <Sponsors />
       </BrowserRouter>,
     )
 
-    expect(screen.getByText(/NT\$ 2,000/)).toBeInTheDocument()
+    expect(screen.getByText(/NT\$ 350/)).toBeInTheDocument()
+    expect(screen.getByText(/NT\$ 2,500/)).toBeInTheDocument()
   })
 
-  it('directs sponsors to open a ticket in the Discord 客服中心 channel', () => {
+  it('directs users to Discord for details', () => {
     render(
       <BrowserRouter>
         <Sponsors />
       </BrowserRouter>,
     )
 
-    expect(screen.getByText(/客服中心/)).toBeInTheDocument()
-    const discordLinks = screen.getAllByRole('link', { name: /Discord|贊助這台車/ })
+    expect(screen.getAllByText(/嘎拉幣/).length).toBeGreaterThan(0)
+    const discordLinks = screen.getAllByRole('link', { name: /了解更多詳情|Discord/ })
     expect(discordLinks.length).toBeGreaterThan(0)
     for (const link of discordLinks) {
       expect(link).toHaveAttribute('href', DISCORD_INVITE_URL)
