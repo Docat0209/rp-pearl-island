@@ -12,6 +12,6 @@ describe('Home page', () => {
     )
 
     expect(screen.getByRole('heading', { name: /珍珠島 Pearl Island/i })).toBeInTheDocument()
-    expect(screen.getAllByRole('link', { name: /贊助車輛/ }).length).toBeGreaterThan(0)
+    expect(screen.getAllByRole('link', { name: /流水超跑|車輛展示/ }).length).toBeGreaterThan(0)
   })
 })
